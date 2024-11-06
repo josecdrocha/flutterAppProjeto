@@ -1,32 +1,25 @@
-// lib/screens/listagem.dart
 import 'package:flutter/material.dart';
 
 class ListagemScreen extends StatelessWidget {
+  final List<Map<String, dynamic>> transactions;
+
+  ListagemScreen({Key? key, required this.transactions}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Listagem'),
+        title: Text('Listagem de Transações'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/'); // Navegar para a Home
-              },
-              child: Text('Ir para a Home'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                    context, '/formulario'); // Navegar para o Formulário
-              },
-              child: Text('Ir para o Formulário'),
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        itemCount: transactions.length,
+        itemBuilder: (context, index) {
+          final transaction = transactions[index];
+          return ListTile(
+            title: Text('Transação ${transaction['id']}'),
+            subtitle: Text('Valor: \$${transaction['amount']}'),
+          );
+        },
       ),
     );
   }

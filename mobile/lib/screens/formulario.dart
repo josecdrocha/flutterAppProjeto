@@ -1,4 +1,3 @@
-// lib/screens/formulario.dart
 import 'package:flutter/material.dart';
 
 class FormularioScreen extends StatelessWidget {
@@ -14,14 +13,13 @@ class FormularioScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/'); // Navegar para a Home
+                Navigator.pushNamed(context, '/');
               },
               child: Text('Ir para a Home'),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(
-                    context, '/listagem'); // Navegar para a Listagem
+                Navigator.pushNamed(context, '/listagem');
               },
               child: Text('Ir para a Listagem'),
             ),

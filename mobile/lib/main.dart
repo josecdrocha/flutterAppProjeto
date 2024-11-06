@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'screens/home.dart'; // Corrigido para home.dart
-import 'screens/formulario.dart'; // Se você for usar essa tela
-import 'screens/listagem.dart'; // Se você for usar essa tela
+import 'screens/home.dart';
+import 'screens/formulario.dart';
+import 'screens/listagem.dart';
 
 void main() {
   runApp(AcademiaApp());
@@ -16,12 +16,17 @@ class AcademiaApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/', // Tela inicial
+      initialRoute: '/',
       routes: {
-        '/': (context) => HomeScreen(), // Rota para a tela home
-        '/formulario': (context) =>
-            FormularioScreen(), // Rota para o formulário
-        '/listagem': (context) => ListagemScreen(), // Rota para a listagem
+        '/': (context) => HomeScreen(),
+        '/formulario': (context) => FormularioScreen(),
+        '/listagem': (context) => ListagemScreen(
+              transactions: [
+                {"id": 1, "amount": 100.0},
+                {"id": 2, "amount": 200.0},
+                {"id": 3, "amount": 50.0}
+              ],
+            ),
       },
     );
   }

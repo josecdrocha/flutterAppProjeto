@@ -15,10 +15,11 @@ void main() {
       home: ListagemScreen(transactions: transactions),
     ));
 
-    // Verificar se os widgets corretos estão sendo exibidos
     expect(find.text('Transação 1'), findsOneWidget);
     expect(find.text('Valor: \$100.0'), findsOneWidget);
     expect(find.text('Transação 2'), findsOneWidget);
     expect(find.text('Valor: \$200.0'), findsOneWidget);
+    expect(find.text('Transação 3'), findsOneWidget);
+    expect(find.text('Valor: \$50.0'), findsOneWidget);
   });
 }

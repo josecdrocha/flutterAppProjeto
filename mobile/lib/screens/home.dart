@@ -1,4 +1,3 @@
-// lib/screens/home.dart
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,15 +13,13 @@ class HomeScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(
-                    context, '/formulario'); // Navegar para o formulário
+                Navigator.pushNamed(context, '/formulario');
               },
               child: Text('Ir para o Formulário'),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(
-                    context, '/listagem'); // Navegar para a listagem
+                Navigator.pushNamed(context, '/listagem');
               },
               child: Text('Ir para a Listagem'),
             ),

@@ -1,39 +1,24 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
 import 'package:http/http.dart' as http;
-import 'package:academia_app/services/transaction_service.dart';
+import 'dart:convert';
 
-class MockClient extends Mock implements http.Client {}
+class TransactionService {
+  final http.Client client;
 
-void main() {
-  group('TransactionService', () {
-    late TransactionService transactionService;
-    late MockClient mockClient;
+  TransactionService({required this.client});
 
-    setUp(() {
-      mockClient = MockClient();
-      transactionService = TransactionService(client: mockClient);
-    });
+  Future<List<Map<String, dynamic>>> fetchTransactions(double minAmount) async {
+    final response =
+        await client.get(Uri.parse('http://localhost:3000/transactions'));
 
-    test('Deve filtrar transações acima do valor mínimo', () async {
-      final mockResponse = '''
-      [
-        {"id": 1, "amount": 100.0},
-        {"id": 2, "amount": 200.0},
-        {"id": 3, "amount": 50.0}
-      ]
-      ''';
+    if (response.statusCode == 200) {
+      List<Map<String, dynamic>> transactions =
+          List<Map<String, dynamic>>.from(json.decode(response.body));
 
-      // Mock da requisição GET
-      when(mockClient.get(Uri.parse('http://localhost:3000/transactions')))
-          .thenAnswer((_) async => http.Response(mockResponse, 200));
-
-      // Chamar a função com o filtro
-      final result = await transactionService.fetchTransactions(100.0);
-
-      // Verificar se as transações com valor superior a 100 foram retornadas
-      expect(result.length, 2);
-      expect(result[0]['amount'], 200.0);
-    });
-  });
+      return transactions.where((transaction) {
+        return transaction['amount'] > minAmount;
+      }).toList();
+    } else {
+      throw Exception('Failed to load transactions');
+    }
+  }
 }
