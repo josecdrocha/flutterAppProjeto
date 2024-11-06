@@ -1,0 +1,32 @@
+{
+  "peito": [
+    { "id": "1", "nome": "Supino reto" },
+    { "id": "2", "nome": "Supino inclinado" },
+    { "id": "3", "nome": "Crucifixo" }
+  ],
+  "costas": [
+    { "id": "1", "nome": "Puxada na frente" },
+    { "id": "2", "nome": "Remada curvada" },
+    { "id": "3", "nome": "Levantamento terra" }
+  ],
+  "perna": [
+    { "id": "1", "nome": "Agachamento" },
+    { "id": "2", "nome": "Leg press" },
+    { "id": "3", "nome": "Cadeira extensora" }
+  ],
+  "biceps": [
+    { "id": "1", "nome": "Rosca direta" },
+    { "id": "2", "nome": "Rosca martelo" },
+    { "id": "3", "nome": "Rosca alternada" }
+  ],
+  "triceps": [
+    { "id": "1", "nome": "Tríceps na corda" },
+    { "id": "2", "nome": "Mergulho" },
+    { "id": "3", "nome": "Tríceps testa" }
+  ],
+  "ombro": [
+    { "id": "1", "nome": "Desenvolvimento" },
+    { "id": "2", "nome": "Elevação lateral" },
+    { "id": "3", "nome": "Arnold press" }
+  ]
+}

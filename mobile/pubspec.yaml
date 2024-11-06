@@ -1,0 +1,33 @@
+name: academia_app
+description: Aplicativo de academia em Flutter
+
+publish_to: "none" # Remova esta linha se for publicar no pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.5.0 <4.0.0" # Defina a versão do SDK do Dart
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.14.0 # Dependência para fazer requisições HTTP
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mockito: ^5.0.0 # Para mockar chamadas HTTP nos testes unitários
+  test: ^1.16.0 # Para execução de testes unitários
+  flutter_lints: ^2.0.0 # Recomendado para verificar a qualidade do código
+
+flutter:
+  uses-material-design: true # Ativa os widgets de Material Design
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+          weight: 700
+
+  # Outras configurações, se necessário
